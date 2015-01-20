@@ -13,12 +13,8 @@ from .utils import choose_one, error_exit
 
 REGEX_SPECIAL_CHARS = r'([\.\*\+\?\|\(\)\{\}\[\]])'
 REGEX_LOG_FORMAT_VARIABLE = r'\$([a-z0-9\_]+)'
-LOG_FORMAT_COMBINED = '$remote_addr - $remote_user [$time_local] ' \
-                      '"$request" $status $body_bytes_sent ' \
-                      '"$http_referer" "$http_user_agent"'
-LOG_FORMAT_COMMON   = '$remote_addr - $remote_user [$time_local] ' \
-                      '"$request" $status $body_bytes_sent ' \
-                      '"$http_x_forwarded_for"'
+LOG_FORMAT_COMBINED = '$remote_addr - $remote_user [$time_local] "$request"' \
+                      '$status $body_bytes_sent $request_body "$http_referer"'
 
 # common parser element
 semicolon = Literal(';').suppress()
